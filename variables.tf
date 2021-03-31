@@ -199,3 +199,14 @@ variable "website" {
   default     = {}
   description = "Map of website values. Supported attributes: main_page_suffix, not_found_page"
 }
+variable "log_bucket_name" {
+  type        =  string
+  default     = ""
+  description = "(Required) The bucket that will receive log objects. "
+}
+
+variable "log_object_prefix" {
+  type        = string
+  default     = ""
+  description = "(Optional, Computed) The object prefix for log objects. If it's not provided, by default GCS sets this to this bucket's name."
+}

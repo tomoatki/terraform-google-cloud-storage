@@ -42,6 +42,10 @@ resource "google_storage_bucket" "buckets" {
     lower(each.value),
     false,
   )
+  logging {
+    log_bucket = var.log_bucket_name
+    log_object_prefix = var.log_object_prefix
+  }
   uniform_bucket_level_access = lookup(
     var.bucket_policy_only,
     lower(each.value),
